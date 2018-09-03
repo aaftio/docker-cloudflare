@@ -26,17 +26,17 @@ fi
 echo "Current time: $(date "+%Y-%m-%d %H:%M:%S")"
 
 # Determines the current IP address
-new_ip=$(curl -s http://ipecho.net/plain)
+new_ip=$(curl -sf4 https://ipinfo.io | jq -r '.ip')
 
 # IP address service fallbacks
 if [[ -z $new_ip ]]; then
-    new_ip=$(curl -s http://whatismyip.akamai.com)
+    new_ip=$(curl -sf4 https://ifconfig.co)
 fi
 if [[ -z $new_ip ]]; then
-    new_ip=$(curl -s http://icanhazip.com/)
+    new_ip=$(curl -sf4 https://diagnostic.opendns.com/myip)
 fi
 if [[ -z $new_ip ]]; then
-    new_ip=$(curl -s https://tnx.nl/ip)
+    new_ip=$(curl -sf4 https://tnx.nl/ip)
 fi
 
 if [[ -z $new_ip ]]; then
