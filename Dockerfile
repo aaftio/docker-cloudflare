@@ -1,4 +1,4 @@
-FROM alpine:3.6
+FROM alpine:3.8
 
 ADD cloudflare.sh /cloudflare.sh
 ADD crontab /var/spool/cron/crontabs/root
