@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Enforces required env variables
 required_vars=(ZONE HOST EMAIL API)
